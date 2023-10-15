@@ -23,7 +23,7 @@ export default function I18nProvider({
   }
   const lang = lng || parentLang || locale || defaultLocale || ''
   const config = { ...internal.config, ...newConfig }
-  const localesToIgnore = config.localesToIgnore || ['default']
+  const localesToIgnore = config.localesToIgnore || ['default', '']
   const ignoreLang = localesToIgnore.includes(lang)
   const pluralRules = new Intl.PluralRules(ignoreLang ? undefined : lang)
   const t = transCore({ config, allNamespaces, pluralRules, lang })
